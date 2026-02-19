@@ -2,16 +2,16 @@ import { useInView } from '../hooks/useInView'
 import { useLanguage } from '../i18n/LanguageContext'
 
 const partners = [
-    { name: 'IT Park', logo: '/images/partners/it-park.jpg', fullBleed: true },
-    { name: 'Silkroad Innovation Hub', logo: '/images/partners/silkroad-alt.webp', minimalPadding: true },
-    { name: 'Yandex', logo: '/images/partners/yandex.webp', fullBleed: true },
-    { name: 'High Technology Park', logo: '/images/partners/high-tech-park.webp', fullBleed: true },
-    { name: 'Nazarbayev University', logo: '/images/partners/nu.png' },
-    { name: 'Alem Tech Fest', logo: '/images/partners/alem-ai.jpg', fullBleed: true },
-    { name: 'startup-course.com UNICORN', logo: '/images/partners/unicorn.jpg', scale: true },
-    { name: 'ISSAI', logo: '/images/partners/issai-new.png', fullBleed: true, issaiStyle: true },
-    { name: 'FABLAB NU', logo: '/images/partners/fablab-nu.png' },
-    { name: 'Master Education', logo: '/images/partners/master-education.png' },
+    { name: 'IT Park', logo: '/images/partners/it-park.jpg', fullBleed: true, url: 'https://www.it-park.uz/' },
+    { name: 'Silkroad Innovation Hub', logo: '/images/partners/silkroad-alt.webp', minimalPadding: true, url: 'https://silkroadinnovationhub.com/' },
+    { name: 'Yandex', logo: '/images/partners/yandex.webp', fullBleed: true, url: 'https://yandex.kz/' },
+    { name: 'High Technology Park', logo: '/images/partners/high-tech-park.webp', fullBleed: true, url: 'https://htp.kg/' },
+    { name: 'Nazarbayev University', logo: '/images/partners/nu.png', url: 'https://nu.edu.kz/ru/' },
+    { name: 'Alem Tech Fest', logo: '/images/partners/alem-ai.jpg', fullBleed: true, url: 'https://alem.ai/ru/' },
+    { name: 'startup-course.com UNICORN', logo: '/images/partners/unicorn.jpg', scale: true, url: 'https://startup-course.com/kz/' },
+    { name: 'ISSAI', logo: '/images/partners/issai-new.png', fullBleed: true, issaiStyle: true, url: 'https://issai.nu.edu.kz/ru/home-rus/' },
+    { name: 'FABLAB NU', logo: '/images/partners/fablab-nu.png', url: 'https://nuris.nu.edu.kz/fablab' },
+    { name: 'Master Education', logo: '/images/partners/master-education.png', url: 'https://mastereducation.kz/' },
 ]
 
 export default function PartnersSection() {
@@ -41,9 +41,11 @@ export default function PartnersSection() {
                     {/* Render partners 3 times for seamless loop */}
                     {[...partners, ...partners, ...partners].map((partner, i) => (
                         <div key={i} className="flex-shrink-0 group">
-                            <div className={`partner-circle ${partner.fullBleed ? 'filled' : ''} ${partner.scale ? 'scale-up' : ''} ${partner.scaleHeavy ? 'scale-heavy' : ''} ${partner.minimalPadding ? 'minimal-padding' : ''} ${partner.issaiStyle ? 'issai-style' : ''}`}>
-                                <img src={partner.logo} alt={partner.name} className="partner-img" />
-                            </div>
+                            <a href={partner.url} target="_blank" rel="noopener noreferrer" className="partner-link">
+                                <div className={`partner-circle ${partner.fullBleed ? 'filled' : ''} ${partner.scale ? 'scale-up' : ''} ${partner.scaleHeavy ? 'scale-heavy' : ''} ${partner.minimalPadding ? 'minimal-padding' : ''} ${partner.issaiStyle ? 'issai-style' : ''}`}>
+                                    <img src={partner.logo} alt={partner.name} className="partner-img" />
+                                </div>
+                            </a>
                         </div>
                     ))}
                 </div>

@@ -239,6 +239,14 @@ body {
   animation-play-state: paused;
 }
 
+/* Partner link wrapper */
+.partner-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 50%;
+}
+
 /* Partner circle with micro-animation */
 .partner-circle {
   width: 120px;
