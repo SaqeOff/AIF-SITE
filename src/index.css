@@ -1,0 +1,366 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
+  background-color: #0500FF;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0500FF;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffffff;
+  border-radius: 3px;
+}
+
+/* AIF Background Pattern */
+.aif-pattern {
+  position: relative;
+}
+
+.aif-pattern::before {
+  content: 'AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF AIF ';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 120px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.03);
+  line-height: 1.1;
+  word-spacing: 40px;
+  letter-spacing: 20px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  word-break: break-all;
+}
+
+/* Asterisk decorators */
+.asterisk {
+  position: absolute;
+  color: #ffffff;
+  font-size: 24px;
+  line-height: 1;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.asterisk::before {
+  content: '✦';
+  display: block;
+}
+
+.asterisk-sm::before {
+  font-size: 12px;
+}
+
+.asterisk-md::before {
+  font-size: 24px;
+}
+
+.asterisk-lg::before {
+  font-size: 40px;
+}
+
+.asterisk-xl::before {
+  font-size: 56px;
+}
+
+/* Flat card with micro-animations */
+.flat-card {
+  background: #ffffff;
+  color: #0500FF;
+  border: none;
+  border-radius: 2px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+}
+
+.flat-card:hover {
+  transform: translateY(-6px) scale(1.01);
+}
+
+/* Flat button with micro-animations */
+.flat-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 36px;
+  background: #ffffff;
+  color: #0500FF;
+  font-weight: 800;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.flat-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(5, 0, 255, 0.08);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease;
+}
+
+.flat-btn:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+.flat-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+}
+
+.flat-btn:active {
+  transform: scale(0.97);
+}
+
+.flat-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 36px;
+  background: transparent;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 2px solid #ffffff;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+}
+
+.flat-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.flat-btn-outline:active {
+  transform: scale(0.97);
+}
+
+/* Section reveal with enhanced animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Marquee ticker */
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+.marquee-container {
+  /* Removed mask-image for sharp edges */
+}
+
+.marquee-track {
+  animation: marqueeScroll 40s linear infinite;
+  display: flex;
+  align-items: center;
+  padding-block: 20px;
+  /* Space for hover scale */
+}
+
+.marquee-track:hover:has(.group:hover) {
+  animation-play-state: paused;
+}
+
+/* Partner circle with micro-animation */
+.partner-circle {
+  width: 120px;
+  height: 120px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  /* overflow: hidden; REMOVED to prevent clipping on scale */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.partner-circle img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  /* Clip image itself since parent overflow is visible */
+}
+
+.partner-circle.filled {
+  padding: 0;
+}
+
+.partner-circle.filled img {
+  object-fit: cover;
+}
+
+.partner-circle.scale-up img {
+  transform: scale(1.15);
+}
+
+/* Special override for ISSAI */
+.partner-circle.issai-style {
+  background-color: transparent !important;
+  padding: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: hidden !important;
+  transform: translateZ(0);
+  /* Fix for edge smoothing */
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+}
+
+.partner-circle.issai-style img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  transform: scale(1.3) !important;
+}
+
+.partner-circle.minimal-padding {
+  padding: 8px;
+}
+
+.partner-circle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+/* Stat divider */
+.stat-divider {
+  width: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  align-self: stretch;
+}
+
+/* QR block */
+.qr-block {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 32px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  transition: transform 0.3s ease;
+}
+
+.qr-block:hover {
+  transform: scale(1.03);
+}
+
+/* White info plate with micro-animation */
+.info-plate {
+  background: #ffffff;
+  color: #0500FF;
+  border-radius: 12px;
+  padding: 24px 32px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.info-plate:hover {
+  transform: translateX(4px);
+}
+
+/* Tabular nums for countdown */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Enhanced focus styles */
+*:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
